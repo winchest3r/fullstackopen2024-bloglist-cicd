@@ -34,11 +34,31 @@ jobs:
           envkey_PORT: 3003
       - name: Test backend
         run: npm run server:test & npm run test:server
+  test_frontend:
+    needs: main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: |
+          npm run init:all
+          npm run build:ui
+          npx playwright install --with-deps
+      - name: Create .env
+        uses: SpicyPizza/create-envfile@v2.0.3
+        with:
+          envkey_MONGODB_URL: ${{ secrets.MONGODB_URL }}
+          envkey_TEST_MONGODB_URL: ${{ secrets.TEST_MONGODB_URL }}
+          envkey_SECRET: ${{ secrets.SECRET }}
+          envkey_PORT: 3003
       - name: Test frontend
         run: npm run test
   tag_bump:
-    needs: main
-    runs-on: ubuntu-20.04
+    needs: test_frontend
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Github Tag Bump
