@@ -14,8 +14,8 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
-    - name: Install dependencies
-      run: npm ci
+    - name: Initialize frontend and backend
+      run: npm run init:all && npm run build:ui
     - name: 'Create .env.local'
       run: |
         cd backend
