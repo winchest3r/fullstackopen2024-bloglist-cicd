@@ -28,7 +28,7 @@ const Bloglist = () => {
   return (
     <Box>
       {blogs.map((b) => (
-        <Blog key={b.id} blog={b} />
+        <Blog key={b.id} blog={b} data-testid="blog"/>
       ))}
       <Togglable buttonLabel={'new blog'} ref={bloglistRef}>
         <BlogForm toggleVisibility={handleBlogFormVisibility} />

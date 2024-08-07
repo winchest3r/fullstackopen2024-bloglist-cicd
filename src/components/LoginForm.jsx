@@ -47,6 +47,7 @@ const LoginForm = () => {
         <FormControl id="username">
           <FormLabel>Username</FormLabel>
           <Input
+            data-testid="username"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -55,6 +56,7 @@ const LoginForm = () => {
         <FormControl id="password">
           <FormLabel>Password</FormLabel>
           <Input
+            data-testid="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

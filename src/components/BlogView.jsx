@@ -59,6 +59,7 @@ const BlogView = () => {
           variant="outline"
           onClick={handleLikes}
           size="xs"
+          data-testid="like"
         >
           ❤️
         </Button>
