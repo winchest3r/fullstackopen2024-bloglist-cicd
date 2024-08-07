@@ -16,13 +16,14 @@ jobs:
         node-version: lts/*
     - name: Initialize frontend and backend
       run: npm run init:all && npm run build:ui
-    - name: 'Create .env.local'
-      run: |
-        cd backend
-        touch .env.local
-        echo TEST_MONGODB_URL=${{ secrets.TEST_MONGODB_URL }} >> .env.local
-        echo SECRET=${{ secrets.SECRET }} >> .env.local
-        echo PORT=3003
+    - name: actions-env
+      uses: skiddph/actions-env@v1.0.3
+      with:
+        file: ./backend/.env
+      env:
+        TEST_MONGODB_URL: ${{ secrets.TEST_MONGODB_URL }}
+        SECRET: ${{ secrets.SECRET }}
+        PORT: '3003'
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
