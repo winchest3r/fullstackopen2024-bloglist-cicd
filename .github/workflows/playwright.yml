@@ -16,6 +16,13 @@ jobs:
         node-version: lts/*
     - name: Install dependencies
       run: npm ci
+    - name: 'Create .env.local'
+      run: |
+        cd backend
+        touch .env.local
+        echo TEST_MONGODB_URL=${{ secrets.TEST_MONGODB_URL }} >> .env.local
+        echo SECRET=${{ secrets.SECRET }} >> .env.local
+        echo PORT=3003
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
