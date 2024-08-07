@@ -1,0 +1,36 @@
+{
+  "name": "bloglist",
+  "version": "0.3.0",
+  "description": "part7",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test node --test",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "dev:test": "cross-env NODE_ENV=test nodemon index.js",
+    "start": "cross-env NODE_ENV=production node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winchest3r/fullstackopen2024.git"
+  },
+  "author": "Evgenii Uglanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/winchest3r/fullstackopen2024/issues"
+  },
+  "homepage": "https://github.com/winchest3r/fullstackopen2024#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.1",
+    "supertest": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.2"
+  }
+}

@@ -1,0 +1,32 @@
+POST http://localhost:3003/api/blogs
+content-type: application/json
+
+{
+    "title": "Structure of backend application introduction to testing",
+    "author": "fullstackopen",
+    "url": "https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing",
+    "likes": 42
+}
+
+###
+
+POST http://localhost:3003/api/blogs
+content-type: application/json
+
+{
+    "title": "Another artificial data for database",
+    "author": "fullstackopen",
+    "url": "https://example.com",
+    "likes": 1
+}
+
+###
+
+POST http://localhost:3003/api/blogs
+content-type: application/json
+
+{
+    "author": "fullstackopen",
+    "url": "http://wrong-data.org",
+    "likes": 1
+}
