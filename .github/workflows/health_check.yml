@@ -1,0 +1,15 @@
+name: Health Check
+
+on:
+  schedule:
+    - cron: '0 12 * * * 0'
+
+jobs:
+  health_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: URL Health Check
+        uses: Jtalk/url-health-check-action@v4
+        with:
+          url: https://fullstackopen2024-bloglist-cicd.onrender.com/
+          max-attempts: 3

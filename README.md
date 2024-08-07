@@ -1,7 +1,10 @@
 # bloglist app
 
+
 Project from [part 7](https://github.com/winchest3r/fullstackopen2024/tree/main/part7/bloglist-app)
 of [Full Stack open](https://fullstackopen.com/en/) course for [part 11 (CI/CD)](https://fullstackopen.com/en/part11)
+
+Deployed at [Render](https://fullstackopen2024-bloglist-cicd.onrender.com/) (log in *tester:tester* to mess up everything :X)
 
 ```
 npm run init:all
