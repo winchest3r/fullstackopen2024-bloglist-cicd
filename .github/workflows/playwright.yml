@@ -17,12 +17,14 @@ jobs:
     - name: Initialize frontend and backend
       run: npm run init:all && npm run build:ui
     - name: Create .env.local
-      run: |
-        cd backend
-        touch .env.local
-        echo TEST_MONGODB_URL=${{ secrets.TEST_MONGODB_URL }} >> .env.local
-        echo SECRET=${{ secrets.SECRET }} >> .env.local
-        echo PORT=3003 >> .env.local
+      uses: SpicyPizza/create-envfile@v2.0.3
+      with:
+        envkey_MONGODB_URL: ${{ secrets.MONGODB_URL }}
+        envkey_TEST_MONGODB_URL: ${{ secrets.TEST_MONGODB_URL }}
+        envkey_SECRET: ${{ secrets.SECRET }}
+        envkey_PORT: 3003
+        directory: backend
+        file_name: .env.local
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
