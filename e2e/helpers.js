@@ -15,13 +15,10 @@ const addBlog = async (page, title, author, url) => {
 
 const addLikes = async (page, blog, likes) => {
     const closedBlog = await page.getByText(`${blog.title} - ${blog.author}`);
-    await closedBlog.waitFor();
-
-    await closedBlog.getByRole('button', { name: 'view' }).click();
+    await closedBlog.click();
 
     for (let i = 0; i < likes; ++i) {
-        const openedBlog = await page.getByText(`${blog.title} - ${blog.author}`);
-        await openedBlog.getByRole('button', { name: 'like' }).click();
+        await page.getByTestId('like').click();
         await page.waitForTimeout(500);
     }
 };

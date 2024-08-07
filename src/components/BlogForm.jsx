@@ -31,6 +31,7 @@ const BlogForm = ({ toggleVisibility }) => {
         <FormLabel>Title</FormLabel>
         <Input
           name="title"
+          placeholder="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -39,6 +40,7 @@ const BlogForm = ({ toggleVisibility }) => {
         <FormLabel>Author</FormLabel>
         <Input
           name="author"
+          placeholder="author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
@@ -47,6 +49,7 @@ const BlogForm = ({ toggleVisibility }) => {
         <FormLabel>Url</FormLabel>
         <Input
           name="url"
+          placeholder="url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
