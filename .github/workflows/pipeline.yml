@@ -56,13 +56,13 @@ jobs:
           envkey_PORT: 3003
       - name: Test frontend
         run: npm run test
-  tag_bump:
+  add_tag:
     needs: test_frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Github Tag Bump
-        if: ${{ github.event_name == 'push' && env.CONDITION == 'false' }}
+      - name: Add tag
+        if: ${{ github.event_name == 'push' && env.TAG_CONDITION == 'false' }}
         uses: anothrNick/github-tag-action@777684df761b882a3f4f70db16ac70d8cc78d0ea
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
